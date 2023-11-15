@@ -15,6 +15,41 @@
   width: 35%;
 }
 
+.pageTitle{
+  font-size: 2rem;
+  padding-block: 0.25rem;
+}
+
+.pageTitleReplyYes{
+  font-size: 1.8rem;
+  padding-block: 0.25rem;
+  font-weight: 700;
+}
+
+.pageTitleReplyNo{
+  font-size: 1.8rem;
+  padding-block: 0.25rem;
+  font-weight: 300;
+}
+
+.socialsText{
+  font-size: 1.2;
+  padding-block: 0.25rem;
+}
+
+.error{
+  font-size: 1rem;
+  color: red;
+  padding-block: 0.25rem;
+}
+
+.statusTextDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 0.5rem;
+}
+
 a:visited{
   color: rgb(215 164 255);
 }

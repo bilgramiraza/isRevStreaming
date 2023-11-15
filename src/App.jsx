@@ -11,20 +11,27 @@ function App() {
   if(loading){
     mainContentDiv = <span className="loader"></span>;
   }else if(error){
-    mainContentDiv = <p>{"Ope, Something Messed Up, Either wait a few Mins and try again and if that doesn't help Contact Me"}</p>;
+    mainContentDiv = <p className="error">{"Ope, Something Messed Up, Either wait a few Mins and try again and if that doesn't help Contact Me"}</p>;
   }else{
-    mainContentDiv = <h2>{isOnline?'HE IS':"HE ISN'T"}</h2>;
-    imageDiv = <img src={isOnline ? online : offline } alt={isOnline?'happyGengarImage':'sadGengarImage'} width={300} height={200}/>
+    if(isOnline){
+      mainContentDiv = <h2 className="pageTitleReplyYes">HE IS</h2>;
+      imageDiv = <img src={ online } alt={ 'happyGengarImage' } width={500} height={500}/>
+    }else{
+      mainContentDiv = <h2 className="pageTitleReplyNo">{"HE ISN'T"}</h2>;
+      imageDiv = <img src={ offline } alt={ 'sadGengarImage' } width={500} height={500}/>
+    }
   }
   return (
     <div className="page">
       <div className="main">
         <div className="statusDiv">
-          <h1>Is Reverse094 Online?</h1>
-          {mainContentDiv}
-          {isOnline && <h2><a href={`https://www.twitch.tv/${data.userName}`} target="_blank" rel="noreferrer">Go There</a></h2>}
+          <h1 className="pageTitle">Is Reverse094 Online?</h1>
+            <div className="statusTextDiv">
+              {mainContentDiv}
+              {isOnline && <h2 className="pageTitleReplyYes"><a href={`https://www.twitch.tv/${data.userName}`} target="_blank" rel="noreferrer">Go There</a></h2>}
+            </div>
           {imageDiv}
-          <h4>While you are here, check out his <a href="https://twitter.com/reverse094" target="_blank" rel="noreferrer">Twitter</a></h4>
+          <h4 className="socialsText">While you are here, check out his <a href="https://twitter.com/reverse094" target="_blank" rel="noreferrer">Twitter</a></h4>
         </div>
         {isOnline && <TwitchDiv data={data}/>}
       </div>

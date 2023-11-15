@@ -22,7 +22,7 @@ function App() {
         <div className="statusDiv">
           <h1>Is Reverse094 Online?</h1>
           {mainContentDiv}
-          {isOnline && <h2><a href="https://www.twitch.tv/reverse094" target="_blank" rel="noreferrer">Go There</a></h2>}
+          {isOnline && <h2><a href={`https://www.twitch.tv/${data.userName}`} target="_blank" rel="noreferrer">Go There</a></h2>}
           {imageDiv}
           <h4>While you are here, check out his <a href="https://twitter.com/reverse094" target="_blank" rel="noreferrer">Twitter</a></h4>
         </div>

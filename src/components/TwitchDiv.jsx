@@ -27,7 +27,7 @@ const TwitchDiv = ({ data }) => {
         <div className='topPanel'>
           <div className='leftPanel'>
             <h3 className='topLevelText'>
-              <a href='https://www.twitch.tv/reverse094' target='_blank' rel='noreferrer'>{ userName }</a>
+              <a href={ `https://www.twitch.tv/${userName}` } target='_blank' rel='noreferrer'>{ userName }</a>
             </h3>
           </div>
           <div className='rightPanel'>

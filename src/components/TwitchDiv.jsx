@@ -21,12 +21,14 @@ const TwitchDiv = ({ data }) => {
         <h2 className='twitchDivTitle'>Stream Preview</h2>
       </div>
       <div>
-        <img src={ latestThumbnail } alt='Latest Thumbnail' height={480} width={640}/>
+        <img src={ latestThumbnail } alt='Latest Thumbnail'height={480} width={640}/>
       </div>
       <div className='twitchData'>
         <div className='topPanel'>
           <div className='leftPanel'>
-            <h3 className='topLevelText'><a href='https://www.twitch.tv/reverse094'>{ userName }</a></h3>
+            <h3 className='topLevelText'>
+              <a href='https://www.twitch.tv/reverse094' target='_blank' rel='noreferrer'>{ userName }</a>
+            </h3>
           </div>
           <div className='rightPanel'>
             <h4 className='lowLevelText'>Viewer Count: { viewerCount }</h4>

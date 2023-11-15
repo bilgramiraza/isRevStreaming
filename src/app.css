@@ -17,3 +17,15 @@
     transform: rotate(360deg);
   }
 } 
+
+.main{
+  display: flex;
+  flex-direction: row;
+  justify-content:left;
+  width: 75vw;
+  margin-left: 1rem;
+}
+
+.statusDiv {
+  width: 35%;
+}

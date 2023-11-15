@@ -29,3 +29,7 @@
 .statusDiv {
   width: 35%;
 }
+
+a:visited{
+  color: rgb(215 164 255);
+}

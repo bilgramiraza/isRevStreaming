@@ -1,3 +1,24 @@
+.main{
+  display: flex;
+  flex-direction: row;
+  justify-content:left;
+  padding-left: 0.5rem;
+  max-width: 99vw;
+}
+
+.page{
+  display: flex;
+  flex-direction: column;
+}
+
+.statusDiv {
+  width: 35%;
+}
+
+a:visited{
+  color: rgb(215 164 255);
+}
+
 .loader {
   width: 48px;
   height: 48px;
@@ -17,19 +38,3 @@
     transform: rotate(360deg);
   }
 } 
-
-.main{
-  display: flex;
-  flex-direction: row;
-  justify-content:left;
-  width: 75vw;
-  margin-left: 1rem;
-}
-
-.statusDiv {
-  width: 45%;
-}
-
-a:visited{
-  color: rgb(215 164 255);
-}

@@ -17,7 +17,7 @@ function App() {
     imageDiv = <img src={isOnline ? online : offline } alt={isOnline?'happyGengarImage':'sadGengarImage'} width={300} height={200}/>
   }
   return (
-    <>
+    <div className="page">
       <div className="main">
         <div className="statusDiv">
           <h1>Is Reverse094 Online?</h1>
@@ -29,7 +29,7 @@ function App() {
         {isOnline && <TwitchDiv data={data}/>}
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

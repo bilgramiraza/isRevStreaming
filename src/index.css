@@ -58,4 +58,10 @@ table {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  background-image: linear-gradient(
+    270deg,
+    hsl(280deg 83% 32%) 1%,
+    hsl(278deg 52% 24%) 50%,
+    hsl(274deg 19% 15%) 99%
+  );
 }

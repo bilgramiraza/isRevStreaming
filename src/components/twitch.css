@@ -12,6 +12,14 @@
   width: 65%;
   font-size: 1.25rem;
   font-weight: 700;
+  margin-block: 0.25rem;
+}
+
+.thumbnailImage{
+  margin-top: 0.125rem;
+  border: 2px dashed whitesmoke;
+  width: 100%;
+  max-height: auto;
 }
 
 .twitchData {
@@ -29,7 +37,6 @@
 .bottomPanel {
   display:flex;
   flex-direction: column;
-  justify-content: start;
   padding-left: 10px;
 }
 
@@ -45,6 +52,9 @@
   flex-direction: column;
   justify-content: start;
   text-align: end;
+  border-inline: 2px dashed whitesmoke;
+  border-bottom: 2px dashed whitesmoke;
+  padding: 0.5rem;
 }
 
 .topLevelText{
@@ -66,24 +76,24 @@
   font-size: 1.2rem;
   font-weight: 600;
   height: min-content;
-  margin-block: 0rem;
+  margin-block: 0.125rem;
 }
 
 .lowLevelText{
   font-size: 1rem;
   height: min-content;
-  margin-block: 0rem;
+  margin-block: 0.125rem;
 }
 
 .tagsDiv {
   font-size: 1.2rem;
   height: min-content;
-  margin-block: 0rem;
+  margin-block: 0.125rem;
 }
 
 .tag {
   font-size: 0.8rem;
-  background-color: rgba(83, 83, 95, 0.48);
+  background-color: rgba(83, 83, 95, 0.68);
   border: none;
   color: white;
   padding: 6px 8px;

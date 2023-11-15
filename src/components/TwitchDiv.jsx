@@ -21,7 +21,7 @@ const TwitchDiv = ({ data }) => {
         <h2 className='twitchDivTitle'>Stream Preview</h2>
       </div>
       <div>
-        <img src={ latestThumbnail } alt='Latest Thumbnail'height={480} width={640}/>
+        <img src={ latestThumbnail } alt='Latest Thumbnail' className='thumbnailImage'/>
       </div>
       <div className='twitchData'>
         <div className='topPanel'>

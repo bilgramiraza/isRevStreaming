@@ -1,0 +1,24 @@
+.footer{
+  width: 65%;
+  border-block: 5px solid whitesmoke;
+  font-size: 16px;
+}
+
+.footer>h3{
+  width: 100%;
+  margin-left: 40%;
+}
+
+.footer>h3>a{
+  color: rgba(255, 255, 255, 0.87);
+  text-decoration-line: none;
+}
+
+.footer>h3>a:hover{
+  text-decoration-line: underline;
+}
+
+.footer>h3>a:visited{
+  color: rgba(255, 255, 255, 0.87);
+  text-decoration-line: none;
+}

@@ -1,10 +1,21 @@
 import { useEffect, useState } from "react";
 
-const getData = async (handleIsOnline, handleError, handleLoading) => {
+const getData = async (handleIsOnline, handleData, handleError, handleLoading) => {
   try{
-    const response = await fetch('https://decapi.me/twitch/uptime/reverse094');
-    const data = await response.text();
-    handleIsOnline(!data.includes('is offline'));
+    const response = await fetch('http://localhost:3000/api/reverse094');
+    const data = await response.json();
+    handleIsOnline(data.isLive);
+    handleData({
+      userName: data.userName,
+      streamTitle: data.streamTitle,
+      game: data.game,
+      viewerCount: data.viewerCount,
+      startedAt: data.startedAt,
+      latestThumbnail:data.latestThumbnail,
+      tags: data.tags,
+      updatedAt: data.updatedAt,
+    });
+
   }catch(err){
     handleError(err);
   }finally{
@@ -13,12 +24,13 @@ const getData = async (handleIsOnline, handleError, handleLoading) => {
 }
 
 export default function useStreamStatus(){
+  const [ data, setData ] = useState({});
   const [ isOnline, setIsOnline ] = useState(false);
   const [ error, setError ] = useState('');
   const [ loading, setLoading ] = useState(true);
 
   useEffect(()=>{
-    getData(setIsOnline, setError, setLoading);
+    getData(setIsOnline, setData, setError, setLoading);
   },[]);
-  return { isOnline, error, loading };
+  return { isOnline, data, error, loading };
 }

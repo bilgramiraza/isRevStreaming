@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 
 const getData = async (handleIsOnline, handleData, handleError, handleLoading) => {
   try{
-    // const response = await fetch('http://localhost:3000/api/reverse094');
-    const response = await fetch('http://localhost:3000/api/Surefour');
+    const response = await fetch('http://localhost:3000/api/reverse094');
     const data = await response.json();
     handleIsOnline(data.isLive);
     handleData({

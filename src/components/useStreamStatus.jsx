@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const getData = async (handleIsOnline, handleData, handleError, handleLoading) => {
   try{
-    const response = await fetch('https://twitchapi.onrender.com/api/reverse094');
+    const response = await fetch(`${import.meta.env.VITE_PRIMARY_API_URI}/${import.meta.env.VITE_STREAMER_USERNAME}`);
     const data = await response.json();
     handleIsOnline(data.isLive);
     handleData({

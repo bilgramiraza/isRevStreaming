@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const getStreamData = async (handleIsOnline, handleData, handleError, handleLoading, altSourceTimer) => {
   try{
     handleLoading(true);
-    const response = await fetch(`${import.meta.env.VITE_PRIMARY_API_URI}/${import.meta.env.VITE_STREAMER_USERNAME}`);
+    const response = await fetch(`${import.meta.env.VITE_PRIMARY_API_URI}/api/${import.meta.env.VITE_STREAMER_USERNAME}`);
     clearTimeout(altSourceTimer);
     const data = await response.json();
     handleIsOnline(data.isLive);
@@ -17,7 +17,6 @@ const getStreamData = async (handleIsOnline, handleData, handleError, handleLoad
       tags: data.tags,
       updatedAt: data.updatedAt,
     });
-
   }catch(err){
     handleError(err);
   }finally{
@@ -44,11 +43,10 @@ export default function useStreamStatus(){
   const [ isOnline, setIsOnline ] = useState(false);
   const [ error, setError ] = useState('');
   const [ loading, setLoading ] = useState(true);
-
   useEffect(()=>{
-    const altSourceTimer = setTimeout(()=>
-      getOnlineStatus(setIsOnline, setData, setError, setLoading)
-      ,1000);
+    const altSourceTimer = setTimeout(()=>{
+      return getOnlineStatus(setIsOnline, setData, setError, setLoading)
+    },1000);
     getStreamData(setIsOnline, setData, setError, setLoading, altSourceTimer);
   },[]);
   return { isOnline, data, error, loading };

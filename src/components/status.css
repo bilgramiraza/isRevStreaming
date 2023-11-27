@@ -1,0 +1,77 @@
+.statusDiv {
+  width: 35%;
+}
+
+.pageTitleReplyYes{
+  font-size: 1.8rem;
+  padding-block: 0.25rem;
+  font-weight: 700;
+  margin-block: 0.5rem;
+  text-decoration-line: underline;
+  text-decoration-color: green;
+}
+
+.pageTitleReplyNo{
+  font-size: 1.8rem;
+  padding-block: 0.25rem;
+  font-weight: 300;
+  margin-block: 0.5rem;
+  text-decoration-line: underline;
+  text-decoration-color: red;
+}
+
+.socialsText{
+  font-size: 1.2rem;
+  padding-block: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.statusTextDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 0.5rem;
+}
+
+.statusImage{
+  width: 99%;
+  max-height: auto;
+}
+
+a:visited{
+  color: rgb(215 164 255);
+}
+
+.twitchBtn, .twitchBtn:visited{
+  background: #772CE8;
+  padding: 4px 8px;
+  border-radius: 10px;
+  color: #FFF;
+  font-size: 1.8rem;
+  padding-block: 0.25rem;
+  font-weight: 700;
+  margin-block: 0.5rem;
+  text-decoration-line: none !important;
+  text-decoration-color: transparent;
+}
+
+.twitchBtn:hover, .twitchBtn:active{
+  background: #9147FF;
+  color: #FFF;
+}
+
+.twitterBtn, .twitterBtn:visited{
+  background: #1A76AF;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: #FFF;
+  text-decoration-line: none;
+  text-decoration-color: transparent;
+  overflow:visible;
+}
+
+.twitterBtn:hover, .twitterBtn:active{
+  background: #218CCE;
+  color: #FFF;
+}
+

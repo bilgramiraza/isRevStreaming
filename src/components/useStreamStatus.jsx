@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 
-const getStreamData = async (handleIsOnline, handleData, handleError, handleLoading, altSourceTimer) => {
+const getStreamData = async (handleIsOnline, handleData, handleError, handleLoading, altSourceTimer, abortSignal) => {
   try{
     handleLoading(true);
-    const response = await fetch(`${import.meta.env.VITE_PRIMARY_API_URI}/api/${import.meta.env.VITE_STREAMER_USERNAME}`);
+    const url = `${import.meta.env.VITE_PRIMARY_API_URI}/api/${import.meta.env.VITE_STREAMER_USERNAME}`;
+    const response = await fetch(url ,{ abortSignal });
     clearTimeout(altSourceTimer);
     const data = await response.json();
     handleIsOnline(data.isLive);
@@ -24,13 +25,17 @@ const getStreamData = async (handleIsOnline, handleData, handleError, handleLoad
   }
 }
 
-const getOnlineStatus = async (handleIsOnline, handleData, handleError, handleLoading)=>{
+const getOnlineStatus = async (handleIsOnline, handleData, handleError, handleLoading, controller)=>{
   try{
     handleLoading(true);
-    const response = await fetch(`${import.meta.env.VITE_SECONDARY_API_URI}/${import.meta.env.VITE_STREAMER_USERNAME}`);
+    const url = `${import.meta.env.VITE_SECONDARY_API_URI}/${import.meta.env.VITE_STREAMER_USERNAME}`;
+    const response = await fetch(url);
     const data = await response.text();
     handleIsOnline(!data.includes('is offline'));
     handleData({});
+    if(data.includes('is offline')){
+      controller.abort();
+    }
   }catch(err){
     handleError(err);
   }finally{
@@ -44,10 +49,11 @@ export default function useStreamStatus(){
   const [ error, setError ] = useState('');
   const [ loading, setLoading ] = useState(true);
   useEffect(()=>{
+    const controller = new AbortController();
     const altSourceTimer = setTimeout(()=>{
-      return getOnlineStatus(setIsOnline, setData, setError, setLoading)
-    },1000);
-    getStreamData(setIsOnline, setData, setError, setLoading, altSourceTimer);
+      return getOnlineStatus(setIsOnline, setData, setError, setLoading, controller)
+    },2000);
+    getStreamData(setIsOnline, setData, setError, setLoading, altSourceTimer, controller.signal);
   },[]);
   return { isOnline, data, error, loading };
 }

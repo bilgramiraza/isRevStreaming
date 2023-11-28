@@ -13,7 +13,7 @@ function App() {
           <h1 className="pageTitle">Is Reverse094 Online?</h1>
           {loading && <span className="loader"></span>}
           {error && <p className="error">{"Ope, Something Messed Up, Either wait a few Mins and try again and if that doesn't help Contact Me"}</p>}
-          {isOnline && <StatusDiv isOnline={isOnline}/>}
+          <StatusDiv isOnline={isOnline}/>
         </div>
         <div className='twitchDiv'>
           {loading && <span className="loader"></span>}

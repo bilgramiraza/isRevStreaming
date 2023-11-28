@@ -1,69 +1,31 @@
-.main{
-  display: flex;
-  flex-direction: row;
-  justify-content:left;
-  padding-left: 0.5rem;
-  max-width: 99vw;
-}
-
 .page{
   display: flex;
   flex-direction: column;
+  justify-content:left;
+  max-width: 100vw;
+  min-height: 100svh;
 }
 
-.statusDiv {
-  width: 35%;
+.main{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  padding-left: 0.5rem;
+}
+
+.twitchDiv {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem 0 1rem;
+  width: 45%;
+  border-left: 3px solid whitesmoke;
+  padding-bottom: 10px;
 }
 
 .pageTitle{
   font-size: 2rem;
   padding-block: 0.25rem;
-}
-
-.pageTitleReplyYes{
-  font-size: 1.8rem;
-  padding-block: 0.25rem;
-  font-weight: 700;
-  margin-block: 0.5rem;
-  text-decoration-line: underline;
-  text-decoration-color: green;
-}
-
-.pageTitleReplyNo{
-  font-size: 1.8rem;
-  padding-block: 0.25rem;
-  font-weight: 300;
-  margin-block: 0.5rem;
-  text-decoration-line: underline;
-  text-decoration-color: red;
-}
-
-.socialsText{
-  font-size: 1.2;
-  padding-block: 0.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.error{
-  font-size: 1rem;
-  color: red;
-  padding-block: 0.25rem;
-}
-
-.statusTextDiv {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-bottom: 0.5rem;
-}
-
-.statusImage{
-  width: 99%;
-  max-height: auto;
-}
-
-a:visited{
-  color: rgb(215 164 255);
+  padding-left: 0.5rem;
 }
 
 .loader {
@@ -86,35 +48,9 @@ a:visited{
   }
 } 
 
-.twitchBtn, .twitchBtn:visited{
-  background: #772CE8;
-  padding: 4px 8px;
-  border-radius: 10px;
-  color: #FFF;
-  font-size: 1.8rem;
+.error{
+  font-size: 1rem;
+  color: red;
   padding-block: 0.25rem;
-  font-weight: 700;
-  margin-block: 0.5rem;
-  text-decoration-line: none !important;
-  text-decoration-color: transparent;
 }
 
-.twitchBtn:hover, .twitchBtn:active{
-  background: #9147FF;
-  color: #FFF;
-}
-
-.twitterBtn, .twitterBtn:visited{
-  background: #1A76AF;
-  padding: 4px 8px;
-  border-radius: 5px;
-  color: #FFF;
-  text-decoration-line: none;
-  text-decoration-color: transparent;
-  overflow:visible;
-}
-
-.twitterBtn:hover, .twitterBtn:active{
-  background: #218CCE;
-  color: #FFF;
-}

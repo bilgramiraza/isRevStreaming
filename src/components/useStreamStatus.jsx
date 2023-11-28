@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 
-const getData = async (handleIsOnline, handleData, handleError, handleLoading) => {
+const getStreamData = async (handleIsOnline, handleData, handleError, handleLoading, altSourceTimer, abortSignal) => {
   try{
-    const response = await fetch('https://twitchapi.onrender.com/api/reverse094');
+    handleLoading(true);
+    const url = `${import.meta.env.VITE_PRIMARY_API_URI}/api/${import.meta.env.VITE_STREAMER_USERNAME}`;
+    const response = await fetch(url ,{ abortSignal });
+    clearTimeout(altSourceTimer);
     const data = await response.json();
     handleIsOnline(data.isLive);
     handleData({
@@ -15,7 +18,24 @@ const getData = async (handleIsOnline, handleData, handleError, handleLoading) =
       tags: data.tags,
       updatedAt: data.updatedAt,
     });
+  }catch(err){
+    handleError(err);
+  }finally{
+    handleLoading(false);
+  }
+}
 
+const getOnlineStatus = async (handleIsOnline, handleData, handleError, handleLoading, controller)=>{
+  try{
+    handleLoading(true);
+    const url = `${import.meta.env.VITE_SECONDARY_API_URI}/${import.meta.env.VITE_STREAMER_USERNAME}`;
+    const response = await fetch(url);
+    const data = await response.text();
+    handleIsOnline(!data.includes('is offline'));
+    handleData({});
+    if(data.includes('is offline')){
+      controller.abort();
+    }
   }catch(err){
     handleError(err);
   }finally{
@@ -28,9 +48,12 @@ export default function useStreamStatus(){
   const [ isOnline, setIsOnline ] = useState(false);
   const [ error, setError ] = useState('');
   const [ loading, setLoading ] = useState(true);
-
   useEffect(()=>{
-    getData(setIsOnline, setData, setError, setLoading);
+    const controller = new AbortController();
+    const altSourceTimer = setTimeout(()=>{
+      return getOnlineStatus(setIsOnline, setData, setError, setLoading, controller)
+    },2000);
+    getStreamData(setIsOnline, setData, setError, setLoading, altSourceTimer, controller.signal);
   },[]);
   return { isOnline, data, error, loading };
 }

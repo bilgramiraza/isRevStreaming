@@ -14,15 +14,11 @@ const TwitchDiv = ({ data }) => {
     updatedAt
   } = data;
   const streamTimer = formatDistance(parseISO(startedAt), parseISO(updatedAt));
-  const tagDivs = tags?.map(tag=><span className='tag' key={ tag }>{ tag }</span>);
+  const tagDivs = tags?.map(tag=><span className='tag' key={ tag }>{ tag }</span>);//Fix CSS
   return (
-    <div className='twitchDiv'>
-      <div>
-        <h2 className='twitchDivTitle'>Stream Preview</h2>
-      </div>
-      <div>
-        <img src={ latestThumbnail } alt='Latest Thumbnail' className='thumbnailImage'/>
-      </div>
+    <>
+      <h2 className='twitchDivTitle'>Stream Preview</h2>
+      <img src={ latestThumbnail } alt='Latest Thumbnail' className='thumbnailImage'/>
       <div className='twitchData'>
         <div className='topPanel'>
           <div className='leftPanel'>
@@ -41,7 +37,7 @@ const TwitchDiv = ({ data }) => {
           <p className='tagsDiv'>Tags: { tagDivs }</p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

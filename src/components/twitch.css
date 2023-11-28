@@ -1,12 +1,3 @@
-.twitchDiv {
-  display: flex;
-  flex-direction: column;
-  padding: 0 1rem 0 1rem;
-  width: 45%;
-  border-left: 3px solid whitesmoke;
-  padding-bottom: 10px;
-}
-
 .twitchDivTitle{
   border-bottom: 2px solid whitesmoke;
   width: 65%;
@@ -60,6 +51,7 @@
 .topLevelText{
   font-size: 1.8rem;
   height: min-content;
+  font-weight: 700;
   margin-block: 0.25rem;
 }
 

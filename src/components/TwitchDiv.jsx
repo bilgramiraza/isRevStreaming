@@ -13,8 +13,10 @@ const TwitchDiv = ({ data }) => {
     startedAt,
     updatedAt
   } = data;
-  const streamTimer = formatDistance(parseISO(startedAt), parseISO(updatedAt));
-  const tagDivs = tags?.map(tag=><span className='tag' key={ tag }>{ tag }</span>);//Fix CSS
+  let streamTimer = '';
+  if(startedAt && updatedAt)  streamTimer = formatDistance(parseISO(startedAt), parseISO(updatedAt));
+
+  const tagDivs = tags?.map(tag=><span className='tag' key={ tag }>{ tag }</span>);
   return (
     <>
       <h2 className='twitchDivTitle'>Stream Preview</h2>

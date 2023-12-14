@@ -11,13 +11,19 @@ function App() {
       <div className="main">
         <div className="statusDiv">
           <h1 className="pageTitle">Is Reverse094 Online?</h1>
-          {loading && <span className="loader"></span>}
+          {
+            loading 
+            ? <span className="loader"></span>
+            : <StatusDiv isOnline={isOnline}/>
+          }
           {error && <p className="error">{"Ope, Something Messed Up, Either wait a few Mins and try again and if that doesn't help Contact Me"}</p>}
-          <StatusDiv isOnline={isOnline}/>
         </div>
         <div className='twitchDiv'>
-          {loading && <span className="loader"></span>}
-          {isOnline && <TwitchDiv data={data}/>}
+          {
+            loading 
+            ? <span className="loader"></span>
+            : isOnline && <TwitchDiv data={data}/>
+          }
         </div>
       </div>
       <Footer />

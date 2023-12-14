@@ -4,7 +4,7 @@ const getStreamData = async (handleIsOnline, handleData, handleError, handleLoad
   try{
     handleLoading(true);
     const url = `${import.meta.env.VITE_PRIMARY_API_URI}/api/${import.meta.env.VITE_STREAMER_USERNAME}`;
-    const response = await fetch(url ,{ abortSignal });
+    const response = await fetch(url ,{ abortSignal, mode:'cors' });
     //This is for the case when the Streamer is Offline AND the Server is Taking too long to load
     if(abortSignal.aborted) return;
 
@@ -35,7 +35,7 @@ const getOnlineStatus = async (handleIsOnline, handleError, handleLoading, contr
   try{
     handleLoading(true);
     const url = `${import.meta.env.VITE_SECONDARY_API_URI}/${import.meta.env.VITE_STREAMER_USERNAME}`;
-    const response = await fetch(url);
+    const response = await fetch(url, { mode:'cors' });
     const data = await response.text();
     if(data.includes('is offline')) controller.abort();
     
